@@ -1,0 +1,311 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<h2>Click on the buttons below for routing </h2>
+<div class="container-fluid">
+<input type="button" class="btn btn-primary" value="GET REQUEST" style="width : 40%; margin : 25px"
+(click)="getAPIRequest()">
+<input type="button" class="btn btn-primary" value="POST REQUEST" style="width : 40%; margin : 25px"
+(click)="postAPIRequest()">
+<input type="button" class="btn btn-primary" value="PUT REQUEST" style="width : 40%; margin : 25px"
+(click)="putAPIRequest()">
+<input type="button" class="btn btn-primary" value="DELETE REQUEST" style="width : 40%; margin : 25px"
+(click)="deleteAPIRequest()">
+<input type="button" class="btn btn-primary" value="GET REQUEST WITH PARAMETERS" style="width : 40%; margin : 25px"
+(click)="getAPIRequestWithParameters()">
+<input type="button" class="btn btn-primary" value="POST REQUEST WITH PARAMETERS" style="width : 40%; margin : 25px"
+(click)="postAPIRequestWithParameters()">
+<input type="button" class="btn btn-primary" value="PUT REQUEST WITH PARAMETERS" style="width : 40%; margin : 25px"
+(click)="putAPIRequestWithParameters()">
+<input type="button" class="btn btn-primary" value="DELTE REQUEST WITH PARAMETERS" style="width : 40%; margin : 25px"
+(click)="deleteAPIRequestWithParameters()">
+</div>
+<div *ngIf="dataBoundToTableGetRequest">
+<table class="table table-striped">
+  <thead>
+      <tr colspan = "5">
+          Data received from server as part of GET Request
+        </tr>
+    <tr>
+    <th>
+      First Name
+    </th>
+    <th>
+      Last Name
+    </th>
+    <th>
+      League
+    </th>
+    <th>
+      Goals Scored
+    </th>
+    <th>
+      Year of Playing
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of dataBoundToTableGetRequest">
+      <td>
+        {{data.fName}}
+      </td>
+      <td>
+        {{data.lName}}
+      </td>
+      <td>
+        {{data.league}}
+      </td>
+      <td>
+        {{data.goalsScored}}
+      </td>
+      <td>
+        {{data.year}}
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<div *ngIf = "dataBoundToTablePostRequest">
+<table class="table table-striped">
+    <thead>
+      <tr colspan = "5">
+        Data inserted into table as part of POST Request
+      </tr>
+      <tr>
+      <th>
+        First Name
+      </th>
+      <th>
+        Last Name
+      </th>
+      <th>
+        League
+      </th>
+      <th>
+        Goals Scored
+      </th>
+      <th>
+        Year of Playing
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          {{dataBoundToTablePostRequest.fName}}
+        </td>
+        <td>
+          {{dataBoundToTablePostRequest.lName}}
+        </td>
+        <td>
+          {{dataBoundToTablePostRequest.league}}
+        </td>
+        <td>
+          {{dataBoundToTablePostRequest.goalsScored}}
+        </td>
+        <td>
+          {{dataBoundToTablePostRequest.year}}
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+  <div *ngIf="dataUpdatedOnTheServer">
+      <table class="table table-striped">
+        <thead>
+            <tr colspan = "5">
+                Data updated on server as part of PUT Request
+              </tr>
+              <tr>Total number of records updated : {{dataUpdatedOnTheServer.length}}</tr>
+          <tr>
+          <th>
+            First Name
+          </th>
+          <th>
+            Last Name
+          </th>
+          <th>
+            League
+          </th>
+          <th>
+            Goals Scored
+          </th>
+          <th>
+            Year of Playing
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of dataUpdatedOnTheServer">
+            <td>
+              {{data.fName}}
+            </td>
+            <td>
+              {{data.lName}}
+            </td>
+            <td>
+              {{data.league}}
+            </td>
+            <td>
+              {{data.goalsScored}}
+            </td>
+            <td>
+              {{data.year}}
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+      <div *ngIf="deleteDataFromServer !== undefined">
+      <h3>Total number of records deleted on server by Delete request</h3>
+      <h4>{{deleteDataFromServer.length}}</h4>
+      </div>
+
+      <div *ngIf="dataBoundToTableGetRequestWithParameters">
+          <table class="table table-striped">
+            <thead>
+                <tr colspan = "5">
+                    Data received from server as part of GET Request with Parameters
+                  </tr>
+              <tr>
+              <th>
+                First Name
+              </th>
+              <th>
+                Last Name
+              </th>
+              <th>
+                League
+              </th>
+              <th>
+                Goals Scored
+              </th>
+              <th>
+                Year of Playing
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of dataBoundToTableGetRequestWithParameters">
+                <td>
+                  {{data.fName}}
+                </td>
+                <td>
+                  {{data.lName}}
+                </td>
+                <td>
+                  {{data.league}}
+                </td>
+                <td>
+                  {{data.goalsScored}}
+                </td>
+                <td>
+                  {{data.year}}
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+          
+
+          <div *ngIf="dataUpdatedOnTheServerWithParameters">
+              <table class="table table-striped">
+                <thead>
+                    <tr colspan = "5">
+                        Data updated on server as part of PUT Request With Parameters
+                      </tr>
+                      <tr>Total number of records updated : {{dataUpdatedOnTheServerWithParameters.length}}</tr>
+                  <tr>
+                  <th>
+                    First Name
+                  </th>
+                  <th>
+                    Last Name
+                  </th>
+                  <th>
+                    League
+                  </th>
+                  <th>
+                    Goals Scored
+                  </th>
+                  <th>
+                    Year of Playing
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of dataUpdatedOnTheServerWithParameters">
+                    <td>
+                      {{data.fName}}
+                    </td>
+                    <td>
+                      {{data.lName}}
+                    </td>
+                    <td>
+                      {{data.league}}
+                    </td>
+                    <td>
+                      {{data.goalsScored}}
+                    </td>
+                    <td>
+                      {{data.year}}
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
+          
+    
+              <div *ngIf = "dataBoundToTablePostRequestWithParameters">
+                  <table class="table table-striped">
+                      <thead>
+                        <tr colspan = "5">
+                          Data inserted into table as part of POST Request with Parameters
+                        </tr>
+                        <tr>
+                        <th>
+                          First Name
+                        </th>
+                        <th>
+                          Last Name
+                        </th>
+                        <th>
+                          League
+                        </th>
+                        <th>
+                          Goals Scored
+                        </th>
+                        <th>
+                          Year of Playing
+                        </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            {{dataBoundToTablePostRequestWithParameters.fName}}
+                          </td>
+                          <td>
+                            {{dataBoundToTablePostRequestWithParameters.lName}}
+                          </td>
+                          <td>
+                            {{dataBoundToTablePostRequestWithParameters.league}}
+                          </td>
+                          <td>
+                            {{dataBoundToTablePostRequestWithParameters.goalsScored}}
+                          </td>
+                          <td>
+                            {{dataBoundToTablePostRequestWithParameters.year}}
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
+                    </div>
+                  
+                    <div *ngIf="deleteDataFromServerWithParameters !== undefined">
+                        <h3>Total number of records deleted on server by Delete request With Parameters</h3>
+                        <h4>{{deleteDataFromServerWithParameters.length}}</h4>
+                        </div>
